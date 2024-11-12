@@ -1,5 +1,7 @@
 import pygame
 import sys
+
+import pygame.freetype
 from constants import *
 from player import Player
 from asteroid import Asteroid
@@ -28,6 +30,10 @@ def main():
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     asteroid_field = AsteroidField()
 
+    # setting up score variables
+    score_font = pygame.freetype.SysFont("Arial", 26)
+    score = 0
+
     # main game loop
     while True:
         # if game is quit, stop the loop
@@ -50,9 +56,14 @@ def main():
                 if asteroid.check_collision(shot):
                     asteroid.split()
                     shot.kill()
+                    # update score
+                    score += 1
 
         for obj in drawable:
             obj.draw(screen)
+
+        # draw score
+        score_font.render_to(screen, (10, 10), f"Score: {score}", (255,255,255))
 
         pygame.display.flip()
 
