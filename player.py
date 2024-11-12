@@ -9,6 +9,7 @@ class Player(CircleShape):
         self.rotation = 0
         self.timer = 0
 
+    # logic to draw triangle shape
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
         right = pygame.Vector2(0, 1).rotate(self.rotation + 90) * self.radius / 1.5
@@ -29,6 +30,7 @@ class Player(CircleShape):
 
         keys = pygame.key.get_pressed()
 
+        # setting keybinds
         if keys[pygame.K_a]:
             self.rotate(dt * -1)
         if keys[pygame.K_d]:
@@ -44,6 +46,7 @@ class Player(CircleShape):
         pygame.draw.polygon(screen, "#FFFFFF", self.triangle(), 2)
 
     def shoot(self):
+        # limiting shoot to cooldown
         if self. timer <= 0:
             self.timer = PLAYER_SHOOT_COOLDOWN
             shot = Shot(self.position.x, self.position.y)
