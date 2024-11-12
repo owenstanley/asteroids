@@ -1,8 +1,6 @@
 # asteroids
 
-this is the 2nd project for the boot.dev "Back-end developer career path" (found here: https://www.boot.dev/courses/build-asteroids-python)
-
-it builds on the previous courses in Python and OOP
+this is the 2nd project for the boot.dev "Back-end developer career path" (found here: https://www.boot.dev/courses/build-asteroids-python) - it builds on the previous courses which cover Python basics and OOP
 
 it is a simple version of the "Asteroids" game, made using pygame
 
